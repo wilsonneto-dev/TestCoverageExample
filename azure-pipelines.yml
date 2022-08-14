@@ -43,10 +43,3 @@ stages:
         projects: "./Domain.sln"
         arguments: '--configuration $(buildConfiguration)'
       displayName: 'dotnet test $(buildConfiguration)'
-    - task: DotNetCoreCLI@2
-      displayName: Build + Publish gerando Artifact
-      inputs:
-        command: publish
-        publishWebProjects: True
-        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-        zipAfterPublish: True
