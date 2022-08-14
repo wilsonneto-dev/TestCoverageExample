@@ -41,11 +41,9 @@ stages:
       inputs:
         command: 'test'
         projects: "./Domain.sln"
-        arguments: '--configuration $(buildConfiguration)'
+        arguments: '--configuration $(buildConfiguration) --collect "xplat code coverage"'
       displayName: 'dotnet test $(buildConfiguration)'
       
-    - script: dotnet test --collect:"XPlat Code Coverage"
-
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish code coverage report'
       inputs:
