@@ -44,6 +44,8 @@ stages:
         arguments: '--configuration $(buildConfiguration)'
       displayName: 'dotnet test $(buildConfiguration)'
       
+    - script: dotnet test --collect:"XPlat Code Coverage"
+
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish code coverage report'
       inputs:
