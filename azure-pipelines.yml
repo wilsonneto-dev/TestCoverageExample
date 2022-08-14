@@ -43,3 +43,11 @@ stages:
         projects: "./Domain.sln"
         arguments: '--configuration $(buildConfiguration)'
       displayName: 'dotnet test $(buildConfiguration)'
+      
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish code coverage report'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+  
